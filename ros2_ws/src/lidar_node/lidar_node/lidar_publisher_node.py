@@ -9,7 +9,7 @@ from lidar_node.lidar_capture import Capture
 class LidarPublisher(Node):
     def __init__(self):
         super().__init__('lidar_publisher')
-        self.publisher_ = self.create_publisher(LaserScan, 'lidar_scan', 10)
+        self.publisher_ = self.create_publisher(LaserScan, 'scan', 10)
         self.timer_ = self.create_timer(0.05, self.timer_callback) # 20 Hz
 
         self.lidar = Capture('/dev/ttyAMA0', data_size=480)
